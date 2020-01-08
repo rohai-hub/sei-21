@@ -24,6 +24,9 @@ footer a{
     background-color: lightgreen;
     box-shadow: 1px 1px black;
 }
+.timer{
+    display: inline-block;
+}
 div.container-sm{
     max-width: 600px;
     max-height: auto;
