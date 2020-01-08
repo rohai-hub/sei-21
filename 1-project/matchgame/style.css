@@ -1,0 +1,115 @@
+body{
+    background-image: url("https://digitalsynopsis.com/wp-content/uploads/2017/07/beautiful-color-ui-gradients-backgrounds-orange-coral.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-width: 600px;
+    margin: auto;
+}
+h3{
+    text-align: center;
+}
+h4{
+    text-align: center;
+}
+footer{
+    position: relative;
+    text-align: -webkit-center;
+}
+footer a{
+    color: white;
+    font-size: 0.7rem;
+}
+#reset-button{
+    border-radius: 20px;
+    background-color: lightgreen;
+    box-shadow: 1px 1px black;
+}
+div.container-sm{
+    max-width: 600px;
+    max-height: auto;
+    border: 1px gray;
+}
+#score{
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 11px;
+}
+
+/*--------NAVBAR---------*/
+a.navbar-brand{
+    color: rgba(100,0,0,.9);
+    text-shadow: 2px 0 4px black;
+}
+.navbar {
+    padding: 0rem;
+}
+.bg-dark{
+    background-color: #e9ab1ec9!important;
+    }
+a.nav-link{
+    font-size: 0.8rem;
+}
+
+/*--------Cards---------*/
+
+div.card-deck{
+    margin-bottom: 15px;
+    height: 120px;
+}
+.card-img, .card-img-bottom, .card-img-top{
+    position: absolute;
+    height: 100%;
+}
+#back{
+    display: none;
+}
+.scene{
+    background-color: transparent;
+    width: 90%;
+    height: 98%;
+    max-width: 180px;
+    max-height: 300px;
+    position: relative;
+    perspective: 900px;
+/*    margin: 0 auto;
+    margin-right: 30px;
+    margin-left: 40px;*/
+    cursor: pointer;
+    box-shadow: 10px 10px 32px 10px rgba(133,133,133,0.9);
+}
+.scene:hover{
+    width: 100%;
+    height: 100%;
+}
+.cardz{
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+.is-flipped {
+    transform: rotateY(180deg);
+}
+/*.flip-card-front, .flip-card-back{*/
+.card__face{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+}
+.card__face--front {
+    background-color: darkblue;
+    border-radius: 3px;
+    color: white;
+    text-align: center;
+    text-shadow: 1px 1px grey;
+    padding-top: 25%;
+}
+.card__face--back {
+    background-color: transparent;
+    transform: rotateY(180deg);
+}
