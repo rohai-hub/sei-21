@@ -116,3 +116,7 @@ div.card-deck{
     background-color: transparent;
     transform: rotateY(180deg);
 }
+.card__face--back img{
+    width: 100%;
+    height: 100%;
+}
