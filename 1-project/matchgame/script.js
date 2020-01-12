@@ -1,18 +1,21 @@
 console.log("game!")
 
 // Game timer
-var second = 59, minute = 0, hour = 0;
+var second = 59, minute = 1, hour = 0;
 var timer = document.querySelector('.timer');
 var interval;
+
 //flipping
 var card = document.querySelectorAll('.cardz');//selects element
 console.log(card)
 
-//restart game
-var reset = document.querySelector('#reset-button');
+//start game
+var start = document.querySelector('#reset-button');
+
+//reset game
+var retry = document.getElementById('retry');
 
 //arrays
-
 var cardsArray = [
     { name: "can", src:"images/can.jpg", alt:"can"},
     { name: "can", src:"images/can.jpg", alt:"can"},
@@ -35,22 +38,25 @@ var cardsOpen = []; //empty array to store opened cards
 
 var cardFace = document.querySelectorAll('.card__face');
 
-var autoShow = "";
+var autoShow;
 
 var myCards2 = document.querySelectorAll('card__face--back');
 
+var score = 0;
+var scoreCounter = document.getElementById('score');
+
 //------------------eventlisteners---------------------//
 
-// document.body.onload = startGame();
-reset.addEventListener("click", startGame);
-
+document.body.onload = pageLoads();
+start.addEventListener("click", startGame);
+retry.addEventListener('click', reset);
 
 
 //------------------------------ALL functions---------------------//
 
 function startGame(){
             cards = shuffle(cardsArray);
-
+            scoreCounter.innerHTML = "Score = 0";
             clearInterval(interval);
             console.log(interval);
 
@@ -74,6 +80,7 @@ function startGame(){
 
         enableCard();
         startTimer();
+
 
 
 //to assign a class to an opened img ----------------------------------
@@ -132,15 +139,22 @@ card.forEach(function(item){
 
 })
 
+//--------------RESET & RETRY ----------------------------------------//
+
+function reset(){
+    location.reload();
+}
 
 //-------------if cards matched --------------------------------------//
 
 function matching(){
             clearTimeout(autoShow);
+            clearTimeout(autoShow);
             disableCard();
             cardsOpen[0].classList.add('matching','disabled');
             cardsOpen[1].classList.add('matching','disabled');
             cardsOpen = [];
+            countScore();
 
 }
 
@@ -150,27 +164,15 @@ function notmatching(){
             cardsOpen = [];
     }
 
+//-----------------score Counter ------------------------------------------//
 
-//--------to disable FLIP before Startgame is clicked.--------------------//
+function countScore(){
+            score = score + 10;
+            scoreCounter.innerHTML = "Score = "+ score;
 
-function disableCard() {
-            card.forEach(function(off){
-                    off.classList.add('disabled');
-            })
 }
 
-function enableCard() {
-            card.forEach(function(on){
-                    on.classList.remove('disabled');
-            })
-}
-
-function showAll() {
-            card.forEach(function(show){
-                    show.classList.add('show');
-            })
-}
-
+//--------------startTimer------------------------------------------------//
 function startTimer() {
             interval = setInterval(function() {
             timer.innerHTML = minute + 'mins ' + second + 'secs';//adds text into div
@@ -186,6 +188,7 @@ function startTimer() {
             cardFace.forEach(function(offbl){
                     offbl.classList.remove("blink_me2");
             });
+            timesUp();
 
         }
 
@@ -208,6 +211,59 @@ function startTimer() {
       }, 1000);
 
 }
+
+//----------------when Times UP -------------------------------------//
+
+function timesUp(){
+            setTimeout(function(){
+            var cardDecks = document.querySelectorAll('.card-deck');
+            cardDecks.forEach(function(hide){
+                hide.style.display = "none";
+            });
+            var popup = document.getElementById('popup');
+                popup.style.display = "block";
+            var footer = document.querySelector('footer');
+                footer.remove();
+            var tryagain = document.getElementById('tryagain');
+                tryagain.addEventListener('click',function(){
+                    location.reload();
+                })
+
+        }, 2000);
+}
+
+//-----------------when page loads ----------------------------------//
+
+function pageLoads(){
+            var clickHere = document.getElementById('clickstart');
+                clickHere.style.display = "block";
+
+            setTimeout(function(){
+                clickHere.style.display = "none";
+        }, 5000);
+}
+
+//--------to disable FLIP before Startgame is clicked.--------------------//
+
+function disableCard() {
+            card.forEach(function(off){
+                    off.classList.add('disabled');
+            })
+}
+
+function enableCard() {
+            card.forEach(function(on){
+                    on.classList.remove('disabled');
+            })
+}
+
+function showAll() {
+            card.forEach(function(show){
+                    show.classList.add('show');
+            })
+}
+
+
 
 //shuffles cardsArray
 function shuffle(array) {

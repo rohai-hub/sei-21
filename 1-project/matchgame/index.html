@@ -11,7 +11,8 @@
 <body>
     <nav class="navbar navbar-light bg-dark">
        <button id="reset-button" onclick=startTimer()>START</button>
-        <ul class="nav nav-tabs">
+       <button id="retry">RETRY</button>
+<ul class="nav nav-tabs">
   <li class="nav-item">
     <a class="nav-link active" href="#">Easy</a>
   </li>
@@ -28,7 +29,7 @@
 <div class="container-sm">
         <h3> Matching Game </h3>
         <div class="timer"></div>
-
+        <div id="score"></div>
 
     <div class="card-deck">
 
@@ -164,6 +165,19 @@
 
     </div>
 
+    <div id="popup">
+        <div id="timesup">
+            <h3> Time's Up! Game Over! </h3>
+        </div>
+        <div id="tryagain">
+            <h4> Click Here To Try Again.</h4>
+        </div>
+    </div>
+
+    <div id="clickstart">
+        Click "Start" to Start Game!
+    </div>
+
 </div>
 <footer>
   <a href=#>About Us</a>
@@ -174,7 +188,7 @@
   <a href=#>Jobs</a>
   <a href=#>Privacy</a>
   <a href=#>Terms</a>
-  <a id="ver" href=#>2014 Instagram</a>
+
 
 </footer>
 <script src="script.js" charset="utf-8"></script>

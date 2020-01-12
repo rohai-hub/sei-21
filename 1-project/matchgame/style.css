@@ -2,7 +2,7 @@ body{
     background-image: url("https://ze-robot.com/images/source/2758.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    max-width: 600px;
+    max-width: 800px;
     margin: auto;
 }
 h3{
@@ -22,16 +22,28 @@ footer a{
     font-size: 0.7rem;
 }
 button{
-    margin-left: 155px;
+    margin-left: 35px;
 }
 #reset-button{
     border-radius: 20px;
     background-color: lightgreen;
     box-shadow: 1px 1px black;
+    margin-left: 140px;
+}
+#retry{
+    border-radius: 20px;
+    background-color: lightblue;
+    box-shadow: 1px 1px black;
+    margin-right: 100px;
 }
 .timer{
     display: inline-block;
     color: yellow;
+}
+#score{
+    display: inline;
+    color: yellow;
+    padding-left: 350px;
 }
 
 div.container-sm{
@@ -191,4 +203,40 @@ img.test.imgshown {
     to {
         transform: scale3d(1, 1, 1);
     }
+}
+/*/-------------*popup*--------------/*/
+#popup{
+
+    display: none;
+    min-height: 500px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+#timesup{
+    padding-top: 200px;
+}
+#tryagain{
+    color: sandybrown;
+    box-shadow: 2px 2px 22px 2px rgba(7, 113, 179, 0.7);
+    cursor: pointer;
+}
+#tryagain:hover{
+    box-shadow: 2px 2px 22px 2px rgba(23, 207, 207, 0.7);
+    width: 102%;
+    height: 35px;
+    animation: rubberBand;
+    animation-duration: 0.2s;
+}
+#clickstart{
+    display: none;
+    height: 30px;
+    width: 200px;
+    background-color: transparent;
+    color: rgba(237, 122, 7, 0.8);
+    position: absolute;
+    top: 45px;
+    left: 230px;
+    border-radius: 7px;
+    text-align: center;
+    box-shadow: 1px -1px 3px 3px;
 }
