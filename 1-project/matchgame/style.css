@@ -1,5 +1,5 @@
 body{
-    background-image: url("https://digitalsynopsis.com/wp-content/uploads/2017/07/beautiful-color-ui-gradients-backgrounds-orange-coral.png");
+    background-image: url("https://ze-robot.com/images/source/2758.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     max-width: 600px;
@@ -7,6 +7,8 @@ body{
 }
 h3{
     text-align: center;
+    color: white;
+    text-shadow: 1px 1px grey;
 }
 h4{
     text-align: center;
@@ -19,6 +21,9 @@ footer a{
     color: white;
     font-size: 0.7rem;
 }
+button{
+    margin-left: 155px;
+}
 #reset-button{
     border-radius: 20px;
     background-color: lightgreen;
@@ -26,7 +31,9 @@ footer a{
 }
 .timer{
     display: inline-block;
+    color: yellow;
 }
+
 div.container-sm{
     max-width: 600px;
     max-height: auto;
@@ -92,7 +99,7 @@ div.card-deck{
     transition: transform 0.8s;
     transform-style: preserve-3d;
 }
-.is-flipped {
+.cardz.is-flipped {
     transform: rotateY(180deg);
 }
 /*.flip-card-front, .flip-card-back{*/
@@ -116,7 +123,72 @@ div.card-deck{
     background-color: transparent;
     transform: rotateY(180deg);
 }
+
+.disabled {
+    /*pointer-events: none;*/
+
+}
+.show {
+    transform: rotateY(180deg);
+}
+.blink_me{
+    animation: blinker 1s linear infinite;
+    background-color: red;
+    border-radius: 6px;
+}
+.blink_me2{
+    animation: blinker 1s linear infinite;
+    box-shadow: 10px 10px 32px 10px rgba(219, 0, 0, 0.9);
+}
+@keyframes blinker {
+  50% {
+    opacity: 0.5;
+  }
+}
 .card__face--back img{
     width: 100%;
     height: 100%;
+}
+img.test{
+    opacity: 1;
+}
+img.test.imgshown {
+    visibility: visible;
+}
+.matching{
+    cursor: default;
+    animation: rubberBand;
+    animation-duration: .75s;
+    visibility: visible!important;
+    pointer-events: none;
+
+}
+@keyframes rubberBand {
+    from {
+        transform: scale3d(1, 1, 1);
+    }
+
+    30% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+
+    40% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+
+    50% {
+        transform: scale3d(1.15, 0.85, 1);
+    }
+
+    65% {
+        transform: scale3d(.95, 1.05, 1);
+    }
+
+    75% {
+        transform: scale3d(1.05, .95, 1);
+    }
+
+    to {
+        transform: scale3d(1, 1, 1);
+    }
 }
